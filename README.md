@@ -1,7 +1,10 @@
 # Reinforcement Learning Bitcoin Trading Bot
 
-Right now I am planning to create 6 tutorials, we'll see where we can get with them
+An incremental set of 7 tutorials intended to build a Bitcoin Trading Bot powered by Reinforcement Learning 
 
 ![AI trading bot](RL-Bitcoin-trading-bot_5/IMAGES/gameplay.gif)
 
-Trying to create Reinforcement Learning powered Bitcoin trading bot
+## References
+
+* Tutorial: https://pylessons.com/RL-BTC-BOT-backbone/
+* Videos: https://www.youtube.com/playlist?list=PLbMO9c_jUD46iez4f2HYjoeJLNdZhVmOi
