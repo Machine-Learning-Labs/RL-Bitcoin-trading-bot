@@ -1,0 +1,6 @@
+# https://www.kaggle.com/tencars/392-crypto-currency-pairs-at-minute-resolution
+
+*.csv
+!pricedata.csv
+!BTCUSD_1h.csv
+
