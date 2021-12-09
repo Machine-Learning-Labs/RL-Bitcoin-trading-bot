@@ -146,9 +146,28 @@ def Random_games(env, train_episodes = 50, training_batch_size=500):
 
 print('read')
 dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, '../data/pricedata.csv')
+filename = os.path.join(dirname, '../data/etcust.csv')                # Kaggle
+# filename = os.path.join(dirname, '../data/pricedata.csv')           # reference
 print(f'reading file: {filename}')
 df = pd.read_csv(filename)
+
+print('turn')
+df['Date'] = df['time'].apply(lambda x: pd.to_datetime(x, unit='ms').to_pydatetime().strftime("%d-%m-%Y %H:%M"))
+df['Open'] = df['open']
+df['High'] = df['close']
+df['Low'] = df['high']
+df['Close'] = df['low']
+df['Volume'] = df['volume']
+
+print('clean')
+del df['time']
+del df['open']
+del df['close']
+del df['high']
+del df['low']
+del df['volume']
+
+print('sort')
 df = df.sort_values('Date')
 print(df.head())
 
