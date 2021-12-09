@@ -11,6 +11,7 @@
 import pandas as pd
 import numpy as np
 import random
+import os
 from collections import deque
 
 class CustomEnv:
@@ -143,8 +144,13 @@ def Random_games(env, train_episodes = 50, training_batch_size=500):
     print("average_net_worth:", average_net_worth/train_episodes)
 
 
-df = pd.read_csv('./pricedata.csv')
+print('read')
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, '../data/pricedata.csv')
+print(f'reading file: {filename}')
+df = pd.read_csv(filename)
 df = df.sort_values('Date')
+print(df.head())
 
 lookback_window_size = 10
 train_df = df[:-720-lookback_window_size]
@@ -153,4 +159,4 @@ test_df = df[-720-lookback_window_size:] # 30 days
 train_env = CustomEnv(train_df, lookback_window_size=lookback_window_size)
 test_env = CustomEnv(test_df, lookback_window_size=lookback_window_size)
 
-Random_games(train_env, train_episodes = 10, training_batch_size=500)
+Random_games(train_env, train_episodes = 10000, training_batch_size=1000)

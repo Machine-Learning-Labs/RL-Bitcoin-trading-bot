@@ -299,8 +299,13 @@ def test_agent(env, visualize=True, test_episodes=10):
             
     print("average {} episodes agent net_worth: {}".format(test_episodes, average_net_worth/test_episodes))
 
-df = pd.read_csv('./pricedata.csv')
+print('read')
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, '../data/pricedata.csv')
+print(f'reading file: {filename}')
+df = pd.read_csv(filename)
 df = df.sort_values('Date')
+print(df.head())
 
 lookback_window_size = 50
 train_df = df[:-720-lookback_window_size]

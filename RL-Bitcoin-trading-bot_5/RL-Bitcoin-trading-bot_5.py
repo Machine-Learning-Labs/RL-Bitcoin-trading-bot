@@ -425,9 +425,12 @@ def test_agent(env, agent, visualize=True, test_episodes=10, folder="", name="Cr
         results.write(f', no profit episodes:{no_profit_episodes}, model: {agent.model}, comment: {comment}\n')
 
 
-if __name__ == "__main__":            
-    df = pd.read_csv('./pricedata.csv')
-    df = df.sort_values('Date')
+if __name__ == "__main__":
+    print('read')
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, '../data/pricedata.csv')  # reference
+    print(f'reading file: {filename}')
+    df = pd.read_csv(filename)
     df = AddIndicators(df) # insert indicators to df
 
     lookback_window_size = 50

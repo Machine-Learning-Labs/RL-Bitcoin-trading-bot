@@ -455,8 +455,12 @@ def test_agent(test_df, test_df_nomalized, visualize=True, test_episodes=10, fol
         results.write(f', no profit episodes:{no_profit_episodes}, model: {agent.model}, comment: {comment}\n')
 
 
-if __name__ == "__main__":            
-    df = pd.read_csv('./BTCUSD_1h.csv')
+if __name__ == "__main__":
+    print('read')
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, '../data/BTCUSD_1h.csv')  # reference
+    print(f'reading file: {filename}')
+    df = pd.read_csv(filename)
     df = df.dropna()
     df = df.sort_values('Date')
 

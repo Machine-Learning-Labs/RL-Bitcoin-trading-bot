@@ -11,6 +11,7 @@
 import pandas as pd
 import numpy as np
 import random
+import os
 from collections import deque
 from utils import TradingGraph, Write_to_file
 
@@ -163,8 +164,13 @@ def Random_games(env, visualize, train_episodes = 50, training_batch_size=500):
     print("average_net_worth:", average_net_worth/train_episodes)
 
 
-df = pd.read_csv('./pricedata.csv')
+print('read')
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, '../data/pricedata.csv')
+print(f'reading file: {filename}')
+df = pd.read_csv(filename)
 df = df.sort_values('Date')
+print(df.head())
 
 lookback_window_size = 50
 train_df = df[:-720-lookback_window_size]
