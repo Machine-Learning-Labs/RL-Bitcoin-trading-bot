@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dataset available at:
+# https://www.kaggle.com/tencars/392-crypto-currency-pairs-at-minute-resolution
+
 # 1. Check dependencies
 python --version >/dev/null 2>&1 || { echo >&2 "I require python but it's not installed. ¯\_(ツ)_/¯ Aborting."; exit 1; }
 kaggle --version >/dev/null 2>&1 || { echo >&2 "I require kaggle CLI but it's not installed. ¯\_(ツ)_/¯ Aborting."; exit 1; }
